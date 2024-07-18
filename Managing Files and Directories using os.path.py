@@ -5,7 +5,7 @@
 
 #Key method for Path Manipulation
 
-#1. Getting the Current Working Directory
+#1.. Getting the Current Working Directory
 
 import os
 
