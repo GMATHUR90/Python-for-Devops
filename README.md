@@ -3,12 +3,12 @@
 Welcome to the **Python for DevOps** repository! This repository contains my daily learning notes and practice sets related to Python usage in DevOps.
 
 ## Table of Contents
-[Introduction](#introduction)
-[Content](#content)
-[Installation](#installation)
-[Usage](#usage)
-[Contributions](#contributions)
-[License](#license)
+1.[Introduction](#introduction)
+2. [Content](#content)
+3. [Installation](#installation)
+4. [Usage](#usage)
+5. [Contributions](#contributions)
+6. [License](#license)
 
 ## Introduction
 This repository serves as a collection of my daily learning experiences and practice exercises involving Python in the field of DevOps. It includes notes, scripts, and examples that cover various topics and use cases.
