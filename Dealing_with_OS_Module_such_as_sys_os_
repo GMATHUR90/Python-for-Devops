@@ -1,0 +1,173 @@
+# Working with Command Line
+# Python provides several modules to interact with systems and shells. The essential one include:
+# 1. 'sys' , 2. 'os' , 3. 'subprocess'
+
+#Talking with the interpreter with the 'sys' Module
+# The 'sys' module provides access to variable and methods closely tied to the 
+# Python interpreter.
+
+#Byte Order
+
+# There are two main ways to interpret bytes: little endian and big endian.
+# You can check the byte order of your architecture using 'sys.byteorder'
+
+import sys
+#print(sys.byteorder)
+
+"""
+O/P: (.venv) gauravmtwt1@gauravmtwt1-IdeaPad-3-15ADA05:~/Documents$ /home/gauravmtwt1/Documents/git-demo/.venv/bin/python "/home/gauravmtwt1/Documents/Python for DevOps/revision_python09feb2024onward.py"
+little
+"""
+
+#Size of Objects
+
+# Use 'sys.getsizeof' to find the size of Python objects, which is useful when dealing with
+# limited memory
+
+#print(sys.getsizeof(1))
+
+"""
+O/P: (.venv) gauravmtwt1@gauravmtwt1-IdeaPad-3-15ADA05:~/Documents$ /home/gauravmtwt1/Documents/git-demo/.venv/bin/python "/home/gauravmtwt1/Documents/Python for DevOps/revision_python09feb2024onward.py"
+28
+"""
+
+#Plateform Check
+# To perform different behaviors based on the underlying operating system, use
+'sys.platform'
+#print(sys.platform)
+
+"""
+O/P: (.venv) gauravmtwt1@gauravmtwt1-IdeaPad-3-15ADA05:~/Documents$ /home/gauravmtwt1/Documents/git-demo/.venv/bin/python "/home/gauravmtwt1/Documents/Python for DevOps/revision_python09feb2024onward.py"
+linux
+"""
+
+#Python Version
+# Use 'sys.version_info' to control behavior based on the running Python interpreter
+# version
+"""
+if sys.version_info.major < 3:
+    print("You need to update your Python version")
+elif sys.version_info.minor < 7:
+    print("You are not running the latest version of Python")
+else: 
+    print("All is good.")
+"""
+"""
+O/P: (.venv) gauravmtwt1@gauravmtwt1-IdeaPad-3-15ADA05:~/Documents$ python3 --version
+Python 3.10.12
+"""
+
+#Dealing with the Operating System using the 'os' Module
+
+#The 'os' module is frequently used for dealing with the filesystem and has various 
+# attributes and functions for interacting with the Operating System.
+
+# Example of 'os' Module Usage:
+
+#1. Current Working Directory
+
+# a. Get the current working directory
+import os
+#print(os.getcwd())
+"""
+O/P:(.venv) gauravmtwt1@gauravmtwt1-IdeaPad-3-15ADA05:~/Documents$ /home/gauravmtwt1/Documents/git-demo/.venv/bin/python "/home/gauravmtwt1/Documents/Python for DevOps/revision_python09feb2024onward.py"
+/home/gauravmtwt1/Documents
+"""
+
+# b. Change the current working directory
+"""
+import os
+os.chdir('/home/gauravmtwt1/Music')
+print(os.getcwd())
+"""
+"""
+O/P: (.venv) gauravmtwt1@gauravmtwt1-IdeaPad-3-15ADA05:~/Documents$ /home/gauravmtwt1/Documents/git-demo/.venv/bin/python "/home/gauravmtwt1/Documents/Python for DevOps/revision_python09feb2024onward.py"
+/home/gauravmtwt1/Music
+"""
+
+#2. Environment Variables
+# a. Access environment variables
+import os
+#print(os.environ.get("LOGLEVEL"))
+"""
+O/P: None
+"""
+
+# b. Set an environment variable
+import os
+os.environ['LOGLEVEL'] = 'DEBUG'
+#print(os.environ.get('LOGLEVEL'))
+"""
+O/P:(.venv) gauravmtwt1@gauravmtwt1-IdeaPad-3-15ADA05:~/Documents$ /home/gauravmtwt1/Documents/git-demo/.venv/bin/python "/home/gauravmtwt1/Documents/Python for DevOps/revision_python09feb2024onward.py"
+DEBUG
+"""
+
+#3. User Login
+# Get the login of the user in the terminal that spawned the process
+import os
+print(os.getlogin())
+"""
+O/P: (.venv) gauravmtwt1@gauravmtwt1-IdeaPad-3-15ADA05:~/Documents$ /home/gauravmtwt1/Documents/git-demo/.venv/bin/python "/home/gauravmtwt1/Documents/Python for DevOps/revision_python09feb2024onward.py"
+gauravmtwt1
+"""
+
+#Spawn Processes with the 'subprocess' Module:
+# When you spawn a process, you are essentially telling the Operating System to start 
+# a new program or command-line application and execute it.
+
+#With 'subprocess', you can run your favorite shell command or other command-line 
+# software and collect it output from within Python.
+
+import subprocess
+#cp = subprocess.run(['ls','-l'], capture_output=True, universal_newlines=True)
+#print(cp.stdout)
+
+# This code snippet run the shell command 'ls' with the argument '-l' to see the contents
+# of the current directory. The 'subprocess.run' functions returns a 'CompletedProcess'
+# instance once the process completes. we set it to capture stdout and stderr with the
+# 'capture_output' parameter, and we access the result using 'cp.stdout'
+"""
+O/P:(.venv) gauravmtwt1@gauravmtwt1-IdeaPad-3-15ADA05:~/Documents/Python for DevOps/github_python_topic_upload/Python-for-Devops$ /home/gauravmtwt1/Documents/git-demo/.venv/bin/python "/home/gauravmtwt1/Documents/Python for DevOps/revision_python09feb2024onward.py"
+gauravmtwt1
+total 80
+-rw-rw-r-- 1 gauravmtwt1 gauravmtwt1  498 Jul 15 08:31 Calculator.py
+-rw-rw-r-- 1 gauravmtwt1 gauravmtwt1  805 Jul 15 08:31 Data_Structure_Dictionary
+-rw-rw-r-- 1 gauravmtwt1 gauravmtwt1 2255 Jul 15 08:31 Data_Structure_list
+-rw-rw-r-- 1 gauravmtwt1 gauravmtwt1  760 Jul 15 08:30 Encrypting_Text_Hashing_&_Hashlib
+-rw-rw-r-- 1 gauravmtwt1 gauravmtwt1 4758 Jul 16 07:55 Encryption_With_Cryptography
+-rw-rw-r-- 1 gauravmtwt1 gauravmtwt1  720 Jul 15 08:31 For loop and while loop in Python.py
+-rw-rw-r-- 1 gauravmtwt1 gauravmtwt1  241 Jul 15 08:31 Helloworld.py
+-rw-rw-r-- 1 gauravmtwt1 gauravmtwt1 2262 Jul 15 08:31 list_ex.py
+-rw-rw-r-- 1 gauravmtwt1 gauravmtwt1 3577 Jul 18 13:01 Managing Files and Directories using os.path.py
+-rw-rw-r-- 1 gauravmtwt1 gauravmtwt1   61 Jul 15 08:31 README.md
+-rw-rw-r-- 1 gauravmtwt1 gauravmtwt1 1405 Jul 15 08:31 set_ex.py
+drwxrwxr-x 2 gauravmtwt1 gauravmtwt1 4096 Jul 17 08:33 Test
+-rw-rw-r-- 1 gauravmtwt1 gauravmtwt1  724 Jul 18 13:02 tuple_ex.py
+-r-------- 1 gauravmtwt1 gauravmtwt1  724 Jul 15 08:31 Tuple_ex.py
+-rw-rw-r-- 1 gauravmtwt1 gauravmtwt1 6017 Jul 17 08:02 Useful_Method_For_OS
+-rw-rw-r-- 1 gauravmtwt1 gauravmtwt1 3719 Jul 19 07:35 Using_Regular_Expression_and_Extracting_data_from_large_files.py
+-rw-rw-r-- 1 gauravmtwt1 gauravmtwt1 4945 Jul 20 08:04 Walking_through_directory_recursively_and_Path_as_Objects_with_Pathlib.py
+
+"""
+#If we run our "ls" command on a non-existent directory, causing it to return an error,
+# we can see the output in 'cp.stderr'.
+
+#cp1 =  subprocess.run(['ls','/doesnotexist'],capture_output=True,universal_newlines=True)
+#print(cp1.stderr)
+
+"""
+O/P:(.venv) gauravmtwt1@gauravmtwt1-IdeaPad-3-15ADA05:~/Documents/Python for DevOps/github_python_topic_upload/Python-for-Devops$ /home/gauravmtwt1/Documents/git-demo/.venv/bin/python "/home/gauravmtwt1/Documents/Python for DevOps/revision_python09feb2024onward.py"
+gauravmtwt1
+ls: cannot access '/doesnotexist': No such file or directory
+"""
+
+#You can better intergrate the handling of errors by using the 'check' parameter. This
+#raises an exception if the subprocess reports an error:
+
+try:
+    cp = subprocess.run(['ls','/doesnotexist'],capture_output=True, universal_newlines=True, check=True)
+except subprocess.CalledProcessError as e:
+    print(f"Error: {e}")
+# In this way, you don't have to check 'stderr' for failures.You can treat errors from
+# your subprocess much as you would other Python exceptions, making your error handling
+# cleaner and more pythonic.
