@@ -1,0 +1,78 @@
+name: Scheduled Merge
+
+on:
+  push:
+    branches:
+      - temp-branch-aug-05
+      - temp-branch-aug-06
+      - temp-branch-aug-07
+
+jobs:
+  merge-temp-branch-aug-05:
+    if: github.ref == 'refs/heads/temp-branch-aug-05'
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout repository
+        uses: actions/checkout@v2
+
+      - name: Wait until August 5th, 2024 at 8 AM UTC
+        run: |
+          target_time="2024-08-05 08:00:00"
+          while [ "$(date -u +'%Y-%m-%d %H:%M:%S')" != "$target_time" ]; do sleep 60; done
+
+      - name: Set up Git
+        run: |
+          git config --global user.name "GMATHUR90"
+          git config --global user.email "ecegauravmathur90@gmail.com"
+
+      - name: Merge changes to main
+        run: |
+          git checkout main
+          git merge temp-branch-aug-05
+          git push origin main
+
+  merge-temp-branch-aug-06:
+    if: github.ref == 'refs/heads/temp-branch-aug-06'
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout repository
+        uses: actions/checkout@v2
+
+      - name: Wait until August 6th, 2024 at 8 AM UTC
+        run: |
+          target_time="2024-08-06 08:00:00"
+          while [ "$(date -u +'%Y-%m-%d %H:%M:%S')" != "$target_time" ]; do sleep 60; done
+
+      - name: Set up Git
+        run: |
+          git config --global user.name "GMATHUR90"
+          git config --global user.email "ecegauravmathur90@gmail.com"
+
+      - name: Merge changes to main
+        run: |
+          git checkout main
+          git merge temp-branch-aug-06
+          git push origin main
+
+  merge-temp-branch-aug-07:
+    if: github.ref == 'refs/heads/temp-branch-aug-07'
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout repository
+        uses: actions/checkout@v2
+
+      - name: Wait until August 7th, 2024 at 8 AM UTC
+        run: |
+          target_time="2024-08-07 08:00:00"
+          while [ "$(date -u +'%Y-%m-%d %H:%M:%S')" != "$target_time" ]; do sleep 60; done
+
+      - name: Set up Git
+        run: |
+          git config --global user.name "GMATHUR90"
+          git config --global user.email "ecegauravmathur90@gmail.com"
+
+      - name: Merge changes to main
+        run: |
+          git checkout main
+          git merge temp-branch-aug-07
+          git push origin main
