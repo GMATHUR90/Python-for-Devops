@@ -81,7 +81,7 @@ print("Modulus Remainder: ", result7)
 result8 = abs(-7)
 print("Absolute Value: ", result8)
 
-# regex findall
+# regex search
 import re
 
 text6 = "The quick brown fox"
@@ -101,8 +101,32 @@ if match:
 else:
     print("No Match")
 
+# regex replace
+text7_A = "The quick brown fox jumps over the lazy brown dog"
+pattern = r"brown"
+
+replacement = "red"
+
+new_text_a = re.sub(pattern, replacement, text7_A)
+print("Modified text: ", new_text_a)
+
+# regex-findall
+
+matches_A = re.findall(pattern, text7_A)
+if matches_A:
+    print("Pattern found: ", matches_A)
+else:
+    print("Pattern not found")
+
+# regex-split
+text8 = "apple,grapes,orange,banana,pinaple"
+pattern_b = r","
+split_result = re.split(pattern_b, text8)
+print("Split result: ", split_result)
+
+
 """
-O/P: (.venv) gauravmtwt1@gauravmtwt1-IdeaPad-3-15ADA05:~/Documents$ /home/gauravmtwt1/Documents/git-demo/.venv/bin/python "/home/gauravmtwt1/Documents/Python for DevOps/github_python_topic_upload/Python-for-Devops/Data_type_examples.py"
+(.venv) gauravmtwt1@gauravmtwt1-IdeaPad-3-15ADA05:~/Documents$ /home/gauravmtwt1/Documents/git-demo/.venv/bin/python "/home/gauravmtwt1/Documents/Python for DevOps/github_python_topic_upload/Python-for-Devops/Data_type_examples.py"
 Hello World
 Lenght of the text:  Python is awesome
 Uppercase:  PYTHON IS AWESOME
@@ -121,6 +145,9 @@ Modulus Remainder:  0
 Absolute Value:  7
 Pattern found:  brown
 No Match
+Modified text:  The quick red fox jumps over the lazy red dog
+Pattern found:  ['brown', 'brown']
+Split result:  ['apple', 'grapes', 'orange', 'banana', 'pinaple']
 
 """
     
