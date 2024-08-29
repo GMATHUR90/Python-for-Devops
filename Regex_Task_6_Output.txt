@@ -1,0 +1,5 @@
+2024-08-25 10:05:30    INFO    Server started successfully
+2024-08-25 10:10:12    INFO    User logged      in: username=john_doe
+2024-08-25 10:15:45    DEBUG    Checking system health: CPU=45%, Memory=68%
+2024-08-25 10:20:00    WARN    Low memory available: 512MB
+2024-08-25 10:25:32    ERROR    Failed to connect to database: Timeout error
