@@ -1,0 +1,20 @@
+[2024-09-05 10:23:45] INFO: User 'jdoe' logged in from IP 192.168.1.100
+[2024-09-05 10:24:12] WARNING: Disk usage at 85% on /dev/sda1
+[2024-09-05 10:25:30] ERROR: Failed to connect to database 'sales_db'
+[2024-09-05 10:26:08] INFO: Backup process started for '/var/data'
+[2024-09-05 11:03:11] INFO: User 'asmith' logged out from IP 192.168.1.105
+[2024-09-05 11:04:19] INFO: Service 'nginx' restarted successfully
+[2024-09-05 11:05:54] ERROR: Timeout while accessing 'http://example.com/api'
+[2024-09-05 11:06:43] WARNING: Memory usage at 90% on server 'web01'
+[2024-09-05 11:45:09] INFO: User 'bwayne' logged in from IP 10.0.0.25
+[2024-09-05 11:46:12] INFO: File '/home/bwayne/report.pdf' uploaded successfully
+[2024-09-05 11:47:37] ERROR: Permission denied for user 'bwayne' on '/var/www/html'
+[2024-09-05 11:48:56] WARNING: High CPU load detected on server 'app02'
+[2024-09-05 12:23:45] INFO: User 'ckent' logged in from IP 172.16.254.1
+[2024-09-05 12:24:12] INFO: Database 'inventory_db' backup completed
+[2024-09-05 12:25:30] ERROR: Failed to send email to 'admin@example.com'
+[2024-09-05 12:26:08] WARNING: Unauthorized access attempt detected on port 22
+[2024-09-05 13:03:11] INFO: User 'pwayne' logged out from IP 10.0.0.35
+[2024-09-05 13:04:19] INFO: Service 'mysql' restarted successfully
+[2024-09-05 13:05:54] ERROR: Insufficient storage space for '/var/log/syslog'
+[2024-09-05 13:06:43] WARNING: SSL certificate for 'example.com' expires in 7 days
