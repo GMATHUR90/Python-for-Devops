@@ -1,0 +1,27 @@
+
+#Encrypting Text
+#Hashing and Hashlib
+#Hashing is a process that converts data into a fixed-size bit string
+#(hash value) using hash function.
+#md5 is a hashing algorithm
+import hashlib
+
+secret = "This is a password or document text"
+bsecret = secret.encode() #Convert the string into bytes
+
+m = hashlib.md5() 
+m.update(bsecret) #Pass the binary string to hash object
+
+#Retrieve the hash value as binary string or hexadecimal string
+hash_value = m.digest() #Binary string
+hex_dec_value = m.hexdigest() #Hexadecimal String
+
+print("Binary Hash Value: ", m.digest())
+print("Hexadecimal Hash Value: ", m.hexdigest())
+
+"""
+O/P:
+Binary Hash Value:  b'\xd6\xb3M\xa6\x9c$T\x98\xd9\x0f\x0c28\x87\xf9\xd8'
+Hexadecimal Hash Value:  d6b34da69c245498d90f0c323887f9d8
+"""
+

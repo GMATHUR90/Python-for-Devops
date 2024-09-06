@@ -1,0 +1,123 @@
+#Encryption with Cryptography
+#Cryptography provides both symmetric and asymetric encryption methods.
+#First need to install cryptography module using "pip install cryptography"
+
+#Symmetric Key Encryption uses same key for encryption and decryption.It is suitable
+# for encrypting large files.
+#It uses Advanced Encryption Standard(AES) for symmetric encryption algorithm.
+
+#Generating a Key with Fernet:
+#Fernet is an implementation of the AES algorithm.
+
+from cryptography.fernet import Fernet
+
+key =  Fernet.generate_key() #Generate a key
+print("Symmetric Key generated: ",key)
+
+"""
+O/P:Symmetric Key generated:  b'8ZC_KGdI5HBzntxsJRxRcdVG4Qg2jsi2TUSI9jpURvY=
+"""
+#Encrypting Data with Fernet
+
+f = Fernet(key)
+message = b"Secrets go here" #message to be encrypted
+encrypted = f.encrypt(message) #encrypt the message
+print("Encrypted Object", encrypted)
+
+"""
+O/P: Encrypted Object b'gAAAAABmlc1j21GqEA3NpStO6Erj5LSRoFHCiVCFjLiPLpQgHbRv96QuzN3Coz-kMaVLVEHLExg9PUHsn_KHL88VmeXpp3QZ1w=='
+"""
+
+#Decrypt Data with Fernet
+
+decrypted = f.decrypt(encrypted)
+print("Decrypted Message: ", decrypted)
+
+"""
+O/P: Decrypted Message:  b'Secrets go here
+"""
+
+#Asymmetric Key Encryption uses a pair of keys: one public and one private.
+# The public key is shared widely, while the private key is kept secret.
+# Only the private key can decrypt messages encrypted with the public key.
+# RSA(Rivest-Shamir-Adleman) is widely used for asymmetric encryption
+
+#Generating RSA Keys
+#You can create public/private key pairs using the "cryptographic" library
+
+from cryptography.hazmat.backends import default_backend
+from cryptography.hazmat.primitives.asymmetric import rsa
+
+#Generate a private key
+private_key = rsa.generate_private_key(
+    public_exponent=65537,
+    key_size=4096,
+    backend=default_backend()
+)
+print("Private Key using Asymmetric Key Encryption: ", private_key)
+"""
+O/P:Private Key using Asymmetric Key Encryption:  <cryptography.hazmat.bindings._rust.openssl.rsa.RSAPrivateKey object at 0x7cf07eb03510>
+"""
+
+#Generate the corresponding public key
+public_key = private_key.public_key()
+#print("Public Key corresponding to private key: ", public_key)
+"""
+O/P: Public Key corresponding to private key:  <cryptography.hazmat.bindings._rust.openssl.rsa.RSAPublicKey object at 0x74f5ee3288d0>
+"""
+
+#Encrypting Data with the Public Key
+#You can use the public key to encrypt data
+
+from cryptography.hazmat.primitives.asymmetric import padding
+from cryptography.hazmat.primitives import hashes
+
+message = b"More secrets go here" #Message to be encrypted
+
+encrypted = public_key.encrypt(
+    message,
+    padding.OAEP(
+        mgf=padding.MGF1(algorithm=hashes.SHA256()),
+        algorithm=hashes.SHA256(),
+        label=None
+    )
+)
+print("Message encryped using public key: ",encrypted)
+"""
+O/P:
+Message encryped using public key:  b'\xd9c\xd0\x8b(v\xf1\x95\xeeg\x04\xd9\x03\x1c`
+\x90\xe0\x85\xad\xa6\x8d\x05\x8f\x08UhE>\'\xed\x01\x8a\xa9\r\xf5\xc6wxZ\\\xcac\x19N'
+\x06r&%\xfc\xfcP\x01\xca\xfcs~:+\x8f\x17\xa2\x9d\xbb\xdaQ\xce0\x14v"\x93L\xaf\xac\xe7
+\x01"\xf9\t\x1e\x881\xba\xd6\xd4\x82O\xfb\x91C:\\\xf0r\xbbq1\x9c\x86\xeb|*\x1e?\x0e\x94
+\xda\xddM\xc6\xd1b\'\xb3m\x0b\x15\xb0\xd6\xb2\xa5\x1b\'\x97\xb9\x03hYd\xbb0\x7fW\xba
+\x89\x8f[\xf6\x1b\xf3v\x96\x93-c\x1a\x81\x80\xe0\xa3\xbd\x18\xb6\x8e\xbf\xa8\xbb\xac
+\x88W\x04\xd8(.R\xdf\xda\x1b\x8f\xfe\xfcb\xbe\xfa\xfe\x91\xa2\x14HJ\xe2\xca\xfe\x84`
+\x0fb\xfe3p\xcd\xc5\xa1\xa6(\xbe>\xf4\x98\x89v\x14\xbc\x97\xb45\x00\xeb\xd0\x9f\xc0\x90
+\xe6Y\xa7\xfcn\x91%\xd3\xef\xba\x0c2+j\xcb\x9c\xed\xb7\xbedb|5\xd0>\xa7\xee\xc7\xc9\xfd
+\x94HRlP\xb9 \xd28\xe34\xc6z\xd4V\xaeQ1\xbe_\xd9\xe2a<\xd7+\x06}i\xfb=\xeaH\xd42\xc6
+\x88\xff\x986?\xb9?\xb2\xf5\x00\x05\xe9=w\x9bh\xb6\xaf>\xa6\xe5\x8f\xb1\xba/g\xa6\xa4T
+\x07.y\x85\xc3(5\xa1\xf7\x1c\xd8\x80\xe9\xfdB=\x9a\xe6\xd7\xbc\x01\x93\x11\x92\x8e\xcf
+\xf4\x15\xc5\xf7\xf1j\x07e\xaa\xc8\x98;t\x05\x9d\xf9\x8b\nHe>\x97<\xd2\xc1`\x19\x97\xc2
+\x03F\xff\x1e\xef!\x1f\xa0\xb7\x98\x06\xfc\xa2\x0b?\x8f\xdf\xb2\x07D k\x19\x98\xdb\xec
+\x80\x8a\xed\x9c\x0e\xad\x07\xe4\xb2=\\\x08\xde\xa5\xbc\x85Qp\xf6a\xf7\xcbK\xf2\x0e01
+\x14\xe1l\xf8\xfa\xee\xd0\xedU\x97\xfb\xcb\x05\xbd\x9b(\xe9\xa0\xe3\xfd\x15\xc6\x19\xd8
+\xfaz\xcd\xa7\xcby\x80J\x0bF\xeeP\xb2_7\'\xff\x00\xb1`\xbd\x10$Y\xbe\xac\xb4\xa9\xe9I
+\x1e\x0e\xd3C\xf3\xd8?\x83ey*\xa6W(\x7f\xe4@^.\xb6\xe35&-\xd6\xe9\xfd\xa4\xb62\x19
+r\xb4m\xeb\x87\xe3{]\xfd\x99\x89\xa5'
+"""
+
+#Decrypting Data with the Private Key
+
+decrypted = private_key.decrypt(
+    encrypted,
+    padding.OAEP(
+        mgf=padding.MGF1(algorithm=hashes.SHA256()),
+        algorithm=hashes.SHA256(),
+        label=None
+    )
+    
+)
+print("Decrypting the message using the private key: ",decrypted)
+"""
+O/P:Decrypting the message using the private key:  b'More secrets go here'
+"""
