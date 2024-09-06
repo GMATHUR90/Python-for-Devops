@@ -1,0 +1,228 @@
+
+Azure Resource Manager Notes
+Overview
+Azure Resource Manager (ARM) is a service for managing and deploying Azure resources as a cohesive group. It provides a consistent management layer accessible through various tools like Azure PowerShell, Azure CLI, Azure portal, REST API, and client SDKs.
+Benefits
+    • Unified Management: Manage, deploy, and monitor resources as a group.
+    • Consistent Deployment: Ensure resources are consistently deployed with templates.
+    • Security: Use Role-Based Access Control (RBAC) for managing access.
+    • Tagging: Organize resources with tags for better management and billing insights.
+    • Declarative Templates: Use JSON templates for infrastructure deployment.
+    • Resource Dependencies: Define dependencies to deploy resources in the correct order.
+    • Cost Management: Clarify billing with tags.
+Key Components
+    • Resource: A manageable item (e.g., virtual machine, storage account).
+    • Resource Group: A container holding related resources.
+    • Resource Provider: Supplies resources and operations (e.g., Microsoft.Compute).
+    • Template: A JSON file defining resources and dependencies.
+    • Declarative Syntax: States the intended infrastructure without scripting steps.
+Resource Groups
+    • Lifecycle: Group resources with the same lifecycle.
+    • Uniqueness: A resource can exist in only one resource group.
+    • Flexibility: Resources can be added, removed, or moved between groups.
+    • Region Independence: Resources in a group can reside in different regions.
+Resource Locks
+    • Types: Read-Only (prevent changes) and Delete (prevent deletion).
+    • Inheritance: Locks apply to child resources.
+Resource Reorganization
+    • Moving Resources: Can move resources to different groups or subscriptions.
+    • Operation Locks: Source and target groups are locked during the move.
+Resource Limits
+    • Monitoring: Track usage against subscription limits.
+    • Requests: Increase limits if necessary through Azure support.
+Best Practices
+    • Use Templates: Deploy infrastructure through ARM templates.
+    • No Manual Steps: Define all steps in templates for consistency.
+    • Tag Resources: Use tags for organization and cost management.
+    • Access Control: Apply RBAC to manage permissions.
+Useful Commands
+    • Delete Resource Group: Remove-AzResourceGroup -Name "ResourceGroupName"
+Conclusion
+ARM simplifies Azure resource management by grouping resources, ensuring consistent deployments, and providing robust security and organizational tools. Use ARM templates for efficient and reliable infrastructure management.
+
+Azure Cloud Shell:
+Azure Cloud Shell is a browser-accessible command-line interface (CLI) for managing Azure resources. It supports both Bash and PowerShell, offering flexibility and ease of use without requiring local installation of Azure CLI components.
+
+PowerShell Overview
+Introduction
+    • PowerShell: A command-line shell and scripting language for automating tasks on local and remote machines.
+    • Useful for operations and development teams, especially for managing cloud resources and CI/CD.
+
+Ensure consistent virtual machine deployments using Azure Resource Manager (ARM) templates.
+ARM Template Schema
+    • $schema: Location of the JSON schema file.
+    • contentVersion: Template version, documenting changes.
+    • parameters: Customizable values provided during deployment.
+    • variables: JSON fragments simplifying template expressions.
+    • functions: User-defined functions available within the template.
+    • resources: Resource types to deploy or update.
+    • outputs: Values returned after deployment.
+Bicep: A domain-specific language (DSL) for deploying Azure resources, offering simpler syntax and reliable type safety.
+
+Microsoft Entra ID is a cloud-based identity and access management service by Microsoft. It helps in managing identities, enforcing access policies, and securing applications and data in the cloud and on-premises.
+Key Features:
+    • Multi-factor authentication
+    • Identity protection
+    • Self-service password reset
+    • Single sign-on (SSO) to cloud-based SaaS applications
+    • Federation between organizations
+    • Conditional Access
+Tiers:
+    • Free: Basic identity management features, included with any Microsoft Online business service.
+    • P1: Adds self-service group management, advanced security reports, MFA, Identity Manager licensing, and more.
+    • P2: Includes P1 features plus Identity Protection and Privileged Identity Management.
+Comparing Microsoft Entra ID and Active Directory Domain Services (AD DS)
+Microsoft Entra ID:
+    • Cloud-based, multi-tenant directory service.
+    • Uses REST API over HTTP and HTTPS.
+    • Supports internet-based applications using HTTP/HTTPS.
+    • No OUs or GPOs; uses a flat structure.
+    • Authentication via SAML, WS-Federation, OpenID Connect, and OAuth.
+Active Directory Domain Services (AD DS):
+    • On-premises, hierarchical directory service.
+    • Uses DNS and LDAP.
+    • Primarily employs Kerberos protocol for authentication.
+    • Utilizes OUs and GPOs for management.
+    • Supports computer objects representing domain-joined computers.
+Microsoft Entra Domain Services
+Provides domain services such as Group Policy management, domain joining, and Kerberos authentication without the need to deploy and manage domain controllers in the cloud.
+Benefits:
+    • Simplifies management and reduces overhead.
+    • Integrates with on-premises AD DS using Microsoft Entra Connect.
+    • Suitable for cloud-only environments.
+Limitations:
+    • Only supports base computer Active Directory object.
+    • Does not support schema extensions or nested OUs.
+Implementing Microsoft Entra ID
+Key Steps:
+    1. Configuring Access: Manage access to applications.
+    2. Single Sign-On (SSO): Enable SSO for cloud-based SaaS applications.
+    3. Managing Users and Groups: Provision and manage users and groups.
+    4. Extending On-Premises AD: Integrate existing on-premises AD with Microsoft Entra ID.
+    5. Configuring Conditional Access: Set policies for user and device access.
+Microsoft Entra ID Use Cases
+    • Directory Service for Cloud Apps: Centralizes authentication and authorization for applications in Azure, Microsoft 365, Dynamics 365, and more.
+    • Identity Management Solution: Provides secure access, identity protection, and MFA for organizations.
+Microsoft Entra ID Tenant
+    • Represents an organization or company that subscribes to Microsoft cloud services.
+    • Supports multiple Azure subscriptions.
+    • Default domain name follows the format: <prefix>.onmicrosoft.com.
+    • Custom domain names can be added.
+Microsoft Entra Schema
+    • Contains fewer object types than AD DS.
+    • Lacks the traditional computer domain membership.
+    • Focuses on user, device, and application data management.
+Conclusion
+Microsoft Entra ID offers a robust solution for managing cloud identities and access, providing enhanced security features, and integrating seamlessly with on-premises Active Directory setups. It is essential for organizations moving to cloud services, ensuring secure and efficient access management across different platforms.
+
+Configure User and group Accounts:
+    • Access to Azure resources is controlled through user accounts and identities defined in Microsoft Entra ID.
+    • Microsoft Entra ID supports group accounts for easier administration.
+User Accounts in Microsoft Entra ID
+    • Cloud Identity: Defined only in Microsoft Entra ID, includes admin and internal user accounts.
+    • Directory-Synchronized Identity: Defined in on-premises Active Directory and synchronized to Azure via Microsoft Entra Connect.
+    • Guest User: Defined outside Azure, useful for external vendors or contractors.
+Key Considerations:
+    • Determine where users are defined (internal or external).
+    • Support for external contributors via Guest user accounts.
+    • Use a combination of user account types to meet business needs.
+Managing User Accounts
+    • User accounts can be added via Azure portal, Microsoft 365 Admin Center, Microsoft Intune admin console, and Azure CLI.
+    • Admins can preset profile data like job title and contact email.
+    • Deleted accounts can be restored within 30 days.
+Bulk Operations:
+    • Bulk create and delete operations are supported using CSV templates in the Azure portal.
+    • Establish naming conventions and strategies for initial passwords to minimize errors.
+Group Accounts in Microsoft Entra ID
+    • Security Groups: Manage member and computer access to shared resources.
+    • Microsoft 365 Groups: Provide collaboration opportunities with shared mailboxes, calendars, and files.
+Adding Group Members:
+    • Assigned Membership: Specific users with unique permissions.
+    • Dynamic Membership: Automatically adds/removes users or devices based on attributes.
+Administrative Units
+    • Useful for organizations with many independent divisions.
+    • Restrict administrative scope using administrative units for more efficient management.
+Implementation Example:
+    • Create a role with administrative permissions for specific departments.
+    • Use Azure portal, PowerShell, or Microsoft Graph to manage administrative units.
+Summary
+    • Microsoft Entra ID supports three types of user accounts: cloud identities, directory-synchronized identities, and guest user identities.
+    • Bulk operations simplify the creation and management of user and group accounts.
+    • Security and Microsoft 365 groups help manage access and collaboration.
+    • Administrative units provide granular control over administrative privileges.
+Key Points
+    1. Types of User Accounts:
+        ◦ Cloud Identity
+        ◦ Directory-Synchronized Identity
+        ◦ Guest User
+    2. Managing Accounts:
+        ◦ Create, configure, and manage via various Azure tools.
+        ◦ Consider profile data customization and restore options.
+    3. Bulk Operations:
+        ◦ Use templates for bulk account creation/deletion.
+        ◦ Implement naming conventions and error reduction strategies.
+    4. Group Accounts:
+        ◦ Security Groups for resource access management.
+        ◦ Microsoft 365 Groups for collaboration.
+    5. Administrative Units:
+        ◦ Restrict scope of admin roles.
+        ◦ Manage using Azure portal, PowerShell, or Microsoft Graph.
+    6. Best Practices:
+        ◦ Understand the concepts and configurations of user and group accounts.
+        ◦ Use administrative units to delegate and manage responsibilities effectively.
+
+Overview of Azure Subscriptions and Cost Management
+Importance of Azure Subscriptions
+    • Control Costs: Essential for managing and optimizing Azure resource expenses.
+    • Organization: Helps organize access, billing, and payment configurations.
+Learning Objectives
+    • Determine correct Azure regions.
+    • Review features and use cases for Azure subscriptions.
+    • Obtain and manage Azure subscriptions.
+    • Understand billing for different subscriptions.
+    • Use Microsoft Cost Management for cost analysis.
+    • Utilize Azure resource tagging.
+    • Identify cost reduction methods.
+Azure Regions
+    • Definition: Geographical areas containing datacenters.
+    • Benefits: Flexibility, scalability, data residency, compliance, resiliency.
+    • Regional Pairs: Paired regions within the same geography for enhanced availability and disaster recovery.
+Implementing Azure Subscriptions
+    • Azure Subscription: Logical unit linked to an Azure account.
+    • Characteristics:
+        ◦ Different billing and payment configurations.
+        ◦ Can link multiple subscriptions to one Azure account.
+        ◦ Billing is per-subscription.
+        ◦ Subscriptions required for programmatic operations.
+Types of Azure Subscriptions
+    • Free: Includes credit for first 30 days, popular products free for 12 months, 25+ products always free.
+    • Pay-As-You-Go (PAYG): Monthly billing for used services.
+    • Enterprise Agreement: Discounts for enterprise-scale organizations.
+    • Student: Free services and credits for students without needing a credit card.
+Microsoft Cost Management
+    • Features:
+        ◦ Advanced analytics for cost and usage patterns.
+        ◦ Reports on Azure service usage and Marketplace offerings.
+        ◦ Uses management groups, budgets, and recommendations.
+        ◦ Supports cost analysis, budget maintenance, and recommendations for cost optimization.
+    • Export Data: Allows exporting cost data to external systems.
+Resource Tagging
+    • Usage: Organize resources by categories for better management and analysis.
+    • Characteristics:
+        ◦ Each tag has a name and a value.
+        ◦ Maximum 50 tag name/value pairs per resource.
+        ◦ Tags can be created programmatically using Azure PowerShell or CLI.
+Cost-Saving Options
+    • Reservations: Pre-pay for resources to get discounts up to 72%.
+    • Azure Hybrid Benefits: Savings for existing on-premises Windows Server or SQL Server licenses.
+    • Azure Credits: Monthly credits for development and testing (e.g., Visual Studio subscribers).
+    • Pricing by Region: Compare and choose cost-effective regions.
+    • Budgets: Use Microsoft Cost Management to set and track budgets.
+    • Pricing Calculator: Estimates for various Azure services.
+Summary
+    • Regions: Flexibility, data residency, compliance, resiliency.
+    • Subscriptions: Manage access and billing.
+    • Cost-Saving: Reservations, Hybrid Benefits, credits.
+    • Tagging: Organize and analyze resources.
+    • Cost Management: Monitor and control spending.
+    • Pricing Calculator: Billing estimates for different scenarios
