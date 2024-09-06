@@ -1,0 +1,110 @@
+#Useful Method for OS Module
+
+#The OS Module in python is used for interacting with a Operating System.
+#It allows you to perform various OS level tasks such as file and directory manipulation,
+# Process Management, and environment variable handling.
+
+#1.Listing the content of a directory
+
+import os
+print("Listing the content of directory: ",os.listdir('.'))
+
+"""
+O/P: Listing the content of directory:  ['Self Introspection.odt', 'java', 'BANK DETAIL',
+ 'Python for DevOps', 'batch4 interview prep.odt', 'DHEA and Vitamin D3.odt', 
+ 'Screenshot from 2023-07-06 09-13-08.png', 'awscliv2.zip', 'verify_apache1.yml', 
+ 'AZ104 MS learn VM notes.odt', 'webapp', 'service-policy.json', 
+ 'core factor determine success.odt', 'aws account detail.odt', 
+ 'Azure Interview Question.odt', 'python', 'my_servers_logs.log', 'go', 
+ 'text.txt', 'orignal authorized public key of agent.odt', 
+ 'my daily thoughts 20 May 2024.odt', 'EPFiGMS Grievance Status as on 13 Mar 2023.pdf',
+   'bookmarks01May23.html', 'eye speed.png', 'Cal Newport Podcast Notes.odt', 
+   'Powershell_Scripting', 'firefox bookmarks.html', '.vscode', 'Azure summary.odt',
+     'Study tracking.ods', 'Understanding Devops  SRE  Platform Engineering 
+     by Agile Guru.odt', 'armtemplate.json', 'RC DZIRE VL MATHUR.odt', 'sample3.txt',
+       'c', 'jenkins_backup', 'my_new_file2.txt', 'my_servers_logs1.log', 
+       '90DaysOfDevOps', 'azure monitor jobrole LTMindtree.odt', 
+       'azure administrator resume format.odt', 'Azure Monitor.odt', 'Untitled 11.odt',
+         'Linkedin and resume optimization.odt', 'eye speed.excalidraw', 
+         'packages-microsoft-prod.deb', 'Cloud Companies in India.ods', 'aws', 
+         'Azure Prerequisite.odt', 'Cloud Companies in Jaipur.odt', 
+         'Monthly study analysis from feb 2023.ods', 'Expense Oct 2023.ods', 
+         'Untitled 1.odt', 'logs.txt', 'github', 'Azure Power Shell.odt', 'Screenshot',
+           'Overload.odt', 'azure test1', '128gb pendrive 13 April 2023', 
+           'my_server_logs.log', 'my_server_logs.logs', 
+           'Behavioural Interview Preparatioin.odt', 'Anand Vaishampayan
+  Career Guidance.odt', 'git-demo', 'my_new_file.txt2.txt', 'my_new_file.txt']
+"""
+
+#2. Renaming a file of directory
+
+os.rename('service-policy.json','Service-Policy.json')
+#O/P:Renaming a file or folder:  None .File/Folder will be renamed
+
+#3. Changing the permission settings of a file or directory
+os.chmod('verify_apache.yml',0o777)
+"""
+O/P: -rw-rw-r--  1 gauravmtwt1 gauravmtwt1    195 Jul  4 08:22 verify_apache.yml
+     -rwxrwxrwx 1 gauravmtwt1 gauravmtwt1 195 Jul  4 08:22 verify_apache.yml
+"""
+
+#4 Creating a directory
+os.mkdir('/home/gauravmtwt1/Documents/babambamlahri.txt')
+"""
+O/P:drwxrwxr-x  2 gauravmtwt1 gauravmtwt1     4096 Jul 17 07:16  babambamlahri.txt
+"""
+
+#5 Recursively creating a directory path
+os.makedirs('/home/gauravmtwt1/Documents/Linux_Administration/Cloud/Devops')
+
+"""
+O/P: (.venv) gauravmtwt1@gauravmtwt1-IdeaPad-3-15ADA05:~/Documents$ cd Linux_Administration/Cloud/Devops/
+(.venv) gauravmtwt1@gauravmtwt1-IdeaPad-3-15ADA05:~/Documents/Linux_Administration/Cloud/Devops$ pwd
+/home/gauravmtwt1/Documents/Linux_Administration/Cloud/Devops
+"""
+
+#6.Deleting a file:
+os.remove('Untitled_11.odt')
+"""
+O/P:(.venv) gauravmtwt1@gauravmtwt1-IdeaPad-3-15ADA05:~/Documents$ ls -la Untitled_11.odt 
+-rw-rw-r-- 1 gauravmtwt1 gauravmtwt1 12552 Dec 11  2023 Untitled_11.odt
+(.venv) gauravmtwt1@gauravmtwt1-IdeaPad-3-15ADA05:~/Documents$ /home/gauravmtwt1/Documents/git-demo/.venv/bin/python "/home/gauravmtwt1/Documents/Python for DevOps/revision_python09feb2024onward.py"
+(.venv) gauravmtwt1@gauravmtwt1-IdeaPad-3-15ADA05:~/Documents$ ls -la Untitled_11.odt
+ls: cannot access 'Untitled_11.odt': No such file or directory
+"""
+
+#7.Deleting a single directory
+os.rmdir('/home/gauravmtwt1/Documents/Linux_Administration/Cloud/Devops')
+"""
+O/S:.venv) gauravmtwt1@gauravmtwt1-IdeaPad-3-15ADA05:~/Documents/Linux_Administration/Cloud/Devops$ pwd
+/home/gauravmtwt1/Documents/Linux_Administration/Cloud/Devops
+(.venv) gauravmtwt1@gauravmtwt1-IdeaPad-3-15ADA05:~/Documents/Linux_Administration/Cloud/Devops$ cd ..
+(.venv) gauravmtwt1@gauravmtwt1-IdeaPad-3-15ADA05:~/Documents/Linux_Administration/Cloud$ ls -la Devops/
+total 8
+drwxrwxr-x 2 gauravmtwt1 gauravmtwt1 4096 Jul 17 07:20 .
+drwxrwxr-x 3 gauravmtwt1 gauravmtwt1 4096 Jul 17 07:20 ..
+(.venv) gauravmtwt1@gauravmtwt1-IdeaPad-3-15ADA05:~/Documents/Linux_Administration/Cloud$ /home/gauravmtwt1/Documents/git-demo/.venv/bin/python "/home/gauravmtwt1/Documents/Python for DevOps/revision_python09feb2024onward.py"
+(.venv) gauravmtwt1@gauravmtwt1-IdeaPad-3-15ADA05:~/Documents/Linux_Administration/Cloud$ ls
+(.venv) gauravmtwt1@gauravmtwt1-IdeaPad-3-15ADA05:~/Documents/Linux_Administration/Cloud$ ls -la Devops
+ls: cannot access 'Devops': No such file or directory
+"""
+
+#8. Deleting a tree of directory
+os.removedirs('Linux_Administration/Cloud')
+"""
+O/P:(.venv) gauravmtwt1@gauravmtwt1-IdeaPad-3-15ADA05:~/Documents$ ls -la Linux_Administration/Cloud/
+total 8
+drwxrwxr-x 2 gauravmtwt1 gauravmtwt1 4096 Jul 17 07:36 .
+drwxrwxr-x 3 gauravmtwt1 gauravmtwt1 4096 Jul 17 07:20 ..
+(.venv) gauravmtwt1@gauravmtwt1-IdeaPad-3-15ADA05:~/Documents$ /home/gauravmtwt1/Documents/git-demo/.venv/bin/python "/home/gauravmtwt1/Documents/Python for DevOps/revision_python09feb2024onward.py"
+(.venv) gauravmtwt1@gauravmtwt1-IdeaPad-3-15ADA05:~/Documents$ ls -la Linux_Administration/Cloud/
+ls: cannot access 'Linux_Administration/Cloud/': No such file or directory
+"""
+
+#9. Getting stats about a file or directory
+stats = os.stat('Azure Prerequisite.odt')
+print(stats)
+"""
+O/P:.venv) gauravmtwt1@gauravmtwt1-IdeaPad-3-15ADA05:~/Documents$ /home/gauravmtwt1/Documents/git-demo/.venv/bin/python "/home/gauravmtwt1/Documents/Python for DevOps/revision_python09feb2024onward.py"
+os.stat_result(st_mode=33204, st_ino=25058, st_dev=2050, st_nlink=1, st_uid=1000, st_gid=1000, st_size=47933, st_atime=1718503872, st_mtime=1718450390, st_ctime=1718450390)
+"""
