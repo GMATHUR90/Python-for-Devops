@@ -1,0 +1,362 @@
+Task-1: Replacing tabs with spaces:
+ [2024-08-31 10:45:12] INFO: Connection from IP 192.168.1.5 at 10:45 AM to server. User email: john.doe@example.com
+[2024-08-31 10:46:25] ERROR: Failed to establish connection on port 8080. Error code: 502   Gateway Redirection Failed. IP: 172.16.254.1
+[2024-08-30 09:23:45] DEBUG: User registration completed. Email: jane.smith@example.org   User ID: 2391.
+[2024-08-29 15:10:34] WARNING:   Suspicious activity detected from IP: 203.0.113.5. Number of requests: 125, likely bot traffic.
+[2024-08-29 18:42:12] INFO: Server successfully restarted. New sessions initiated from 198.51.100.45.
+
+[2024-08-28 12:05:12] INFO: Data   backup completed. Files transferred: 125. Email notification sent to admin@example.com.
+[2024-08-27 17:50:48] ERROR: Permission denied for accessing file at /var/logs/security.log   User: michael.brown@example.net. IP: 192.168.1.102.
+LERT: Unauthorized access attempt detected from IP: 198.51.100.99   User: steve@redteam.org. Alert generated on 2024-08-26.
+[2024-08-25 09:30:25] INFO: Data transfer rate: 150 MB/s. Source IP: 192.168.0.20   Destination IP: 203.0.113.89.
+[2024-08-25 14:55:45] ERROR: Disk write failure occurred   at sector 349820. Email sent to system.admin@backupservices.com.
+
+[2024-08-24 08:22:11] INFO: Service outage reported   on 2024-08-23. Resolution time: 3 hours. Email confirmation sent to outage@reporting.com.
+DEBUG: User   unregistered. User ID: 4501. Email: removed@example.co.
+[2024-08-23 20:15:28] WARNING: Network latency detected from IP 198.51.100.72   Response time: 350ms. Timestamp: 2024-08-23.
+[2024-08-22 07:50:01] INFO: User logged in from IP 192.168.0.3. Email: user.name@samplemail.net   Account status: active.
+[2024-08-22 10:18:44] ALERT: High CPU usage detected. Node   ID: red01   Cluster: prod-cluster-1.
+
+INFO: Backup initiated   for server node 10.0.0.12. Backup size: 3.2GB. Email: backup@company.org.
+[2024-08-21 16:44:20] ERROR: Unable to resolve DNS   for domain name server.redcloud.com. Error code: 504.
+[2024-08-20 14:33:11] WARNING: Redundant power   supply offline. Datacenter: DC-01   Email: support@datacenter.com.
+[2024-08-20 17:12:53] INFO: User subscription updated. User ID: 9932. Email:   update.notifications@serviceprovider.net. IP: 192.168.10.55.
+[2024-08-19 08:22:15] DEBUG: Data import from external source   IP 10.1.2.3 completed. Redundant file entries removed.
+
+[2024-08-19 10:47:09] INFO: User password reset. Email sent to reset@domain.com   on 2024-08-19. IP: 198.51.100.123.
+[2024-08-18 13:50:00] WARNING: Unexpected reboot occurred on server ID: RED01   Timestamp: 2024-08-18 13:50. Email notification sent to admin@domain.com.
+[2024-08-17 15:10:25] INFO: Routine maintenance completed for server IP: 203.0.113.17   Maintenance report sent to support@hostingservice.net.
+[2024-08-16 11:28:34] ERROR: Out-of-memory condition detected on node 10.1.1.9   Email sent to devops@example.cloud.
+INFO: Network   diagnostics completed successfully. IP: 198.51.100.200. Time taken: 25 minutes.
+
+
+Task-2: Extracted all number from logs:
+2024
+08
+31
+10
+45
+12
+192
+168
+1
+5
+10
+45
+2024
+08
+31
+10
+46
+25
+8080
+502
+172
+16
+254
+1
+2024
+08
+30
+09
+23
+45
+2391
+2024
+08
+29
+15
+10
+34
+203
+0
+113
+5
+125
+2024
+08
+29
+18
+42
+12
+198
+51
+100
+45
+2024
+08
+28
+12
+05
+12
+125
+2024
+08
+27
+17
+50
+48
+192
+168
+1
+102
+198
+51
+100
+99
+2024
+08
+26
+2024
+08
+25
+09
+30
+25
+150
+192
+168
+0
+20
+203
+0
+113
+89
+2024
+08
+25
+14
+55
+45
+349820
+2024
+08
+24
+08
+22
+11
+2024
+08
+23
+3
+4501
+2024
+08
+23
+20
+15
+28
+198
+51
+100
+72
+350
+2024
+08
+23
+2024
+08
+22
+07
+50
+01
+192
+168
+0
+3
+2024
+08
+22
+10
+18
+44
+01
+1
+10
+0
+0
+12
+3
+2
+2024
+08
+21
+16
+44
+20
+504
+2024
+08
+20
+14
+33
+11
+01
+2024
+08
+20
+17
+12
+53
+9932
+192
+168
+10
+55
+2024
+08
+19
+08
+22
+15
+10
+1
+2
+3
+2024
+08
+19
+10
+47
+09
+2024
+08
+19
+198
+51
+100
+123
+2024
+08
+18
+13
+50
+00
+01
+2024
+08
+18
+13
+50
+2024
+08
+17
+15
+10
+25
+203
+0
+113
+17
+2024
+08
+16
+11
+28
+34
+10
+1
+1
+9
+198
+51
+100
+200
+25
+
+Task-3: Extracted first words of each line:
+LERT
+DEBUG
+INFO
+INFO
+
+Task-4: Extracted IP Addresses:
+192.168.1.5
+172.16.254.1
+203.0.113.5
+198.51.100.45
+192.168.1.102
+198.51.100.99
+192.168.0.20
+203.0.113.89
+198.51.100.72
+192.168.0.3
+10.0.0.12
+192.168.10.55
+10.1.2.3
+198.51.100.123
+203.0.113.17
+10.1.1.9
+198.51.100.200
+
+Task-5: Extracted dates:
+2024-08-31 10:45:12
+2024-08-31 10:46:25
+2024-08-30 09:23:45
+2024-08-29 15:10:34
+2024-08-29 18:42:12
+2024-08-28 12:05:12
+2024-08-27 17:50:48
+2024-08-25 09:30:25
+2024-08-25 14:55:45
+2024-08-24 08:22:11
+2024-08-23 20:15:28
+2024-08-22 07:50:01
+2024-08-22 10:18:44
+2024-08-21 16:44:20
+2024-08-20 14:33:11
+2024-08-20 17:12:53
+2024-08-19 08:22:15
+2024-08-19 10:47:09
+2024-08-18 13:50:00
+2024-08-17 15:10:25
+2024-08-16 11:28:34
+
+Task-6: Extracted email addresses:
+john.doe@example.com
+jane.smith@example.org
+admin@example.com
+michael.brown@example.net
+steve@redteam.org
+system.admin@backupservices.com
+outage@reporting.com
+removed@example.co
+user.name@samplemail.net
+backup@company.org
+support@datacenter.com
+update.notifications@serviceprovider.net
+reset@domain.com
+admin@domain.com
+support@hostingservice.net
+devops@example.cloud
+
+Task-7: Replaced 'red' with 'green' and 'RED' with 'GREEN':
+[2024-08-31 10:45:12] INFO: Connection from IP 192.168.1.5 at 10:45 AM to server. User email: john.doe@example.com
+[2024-08-31 10:46:25] ERROR: Failed to establish connection on port 8080. Error code: 502   Gateway Redirection Failed. IP: 172.16.254.1
+[2024-08-30 09:23:45] DEBUG: User registration completed. Email: jane.smith@example.org   User ID: 2391.
+[2024-08-29 15:10:34] WARNING:   Suspicious activity detected from IP: 203.0.113.5. Number of requests: 125, likely bot traffic.
+[2024-08-29 18:42:12] INFO: Server successfully restarted. New sessions initiated from 198.51.100.45.
+
+[2024-08-28 12:05:12] INFO: Data   backup completed. Files transferred: 125. Email notification sent to admin@example.com.
+[2024-08-27 17:50:48] ERROR: Permission denied for accessing file at /var/logs/security.log   User: michael.brown@example.net. IP: 192.168.1.102.
+LERT: Unauthorized access attempt detected from IP: 198.51.100.99   User: steve@redteam.org. Alert generated on 2024-08-26.
+[2024-08-25 09:30:25] INFO: Data transfer rate: 150 MB/s. Source IP: 192.168.0.20   Destination IP: 203.0.113.89.
+[2024-08-25 14:55:45] ERROR: Disk write failure occurred   at sector 349820. Email sent to system.admin@backupservices.com.
+
+[2024-08-24 08:22:11] INFO: Service outage reported   on 2024-08-23. Resolution time: 3 hours. Email confirmation sent to outage@reporting.com.
+DEBUG: User   unregistered. User ID: 4501. Email: removed@example.co.
+[2024-08-23 20:15:28] WARNING: Network latency detected from IP 198.51.100.72   Response time: 350ms. Timestamp: 2024-08-23.
+[2024-08-22 07:50:01] INFO: User logged in from IP 192.168.0.3. Email: user.name@samplemail.net   Account status: active.
+[2024-08-22 10:18:44] ALERT: High CPU usage detected. Node   ID: red01   Cluster: prod-cluster-1.
+
+INFO: Backup initiated   for server node 10.0.0.12. Backup size: 3.2GB. Email: backup@company.org.
+[2024-08-21 16:44:20] ERROR: Unable to resolve DNS   for domain name server.redcloud.com. Error code: 504.
+[2024-08-20 14:33:11] WARNING: Redundant power   supply offline. Datacenter: DC-01   Email: support@datacenter.com.
+[2024-08-20 17:12:53] INFO: User subscription updated. User ID: 9932. Email:   update.notifications@serviceprovider.net. IP: 192.168.10.55.
+[2024-08-19 08:22:15] DEBUG: Data import from external source   IP 10.1.2.3 completed. Redundant file entries removed.
+
+[2024-08-19 10:47:09] INFO: User password reset. Email sent to reset@domain.com   on 2024-08-19. IP: 198.51.100.123.
+[2024-08-18 13:50:00] WARNING: Unexpected reboot occurred on server ID: RED01   Timestamp: 2024-08-18 13:50. Email notification sent to admin@domain.com.
+[2024-08-17 15:10:25] INFO: Routine maintenance completed for server IP: 203.0.113.17   Maintenance report sent to support@hostingservice.net.
+[2024-08-16 11:28:34] ERROR: Out-of-memory condition detected on node 10.1.1.9   Email sent to devops@example.cloud.
+INFO: Network   diagnostics completed successfully. IP: 198.51.100.200. Time taken: 25 minutes.

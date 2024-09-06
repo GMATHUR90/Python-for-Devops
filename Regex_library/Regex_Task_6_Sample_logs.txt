@@ -1,0 +1,5 @@
+2024-08-25 10:05:30\tINFO\tServer started successfully
+2024-08-25 10:10:12\tINFO\tUser logged \t in: username=john_doe
+2024-08-25 10:15:45\tDEBUG\tChecking system health: CPU=45%, Memory=68%
+2024-08-25 10:20:00\tWARN\tLow memory available: 512MB
+2024-08-25 10:25:32\tERROR\tFailed to connect to database: Timeout error
