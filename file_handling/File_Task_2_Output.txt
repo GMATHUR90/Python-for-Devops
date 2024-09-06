@@ -1,0 +1,6 @@
+This is line_1: [2024-09-05 10:23:45] INFO: User 'jdoe' logged in from IP 192.168.1.100
+
+This is line_12: [2024-09-05 11:48:56] WARNING: High CPU load detected on server 'app02'
+
+This is last line: [2024-09-05 13:06:43] WARNING: SSL certificate for 'example.com' expires in 7 days
+
