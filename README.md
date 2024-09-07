@@ -27,7 +27,7 @@ Here's an overview of the folder structure in this repository:
 ├── file_handling/              # File operations and handling scripts
 ├── regex_library/              # Regular expression examples and tasks
 └── utils/                      # Various utility scripts
-
+```
 # Scripts Overview
 Here’s a summary of some of the key scripts and their functionalities:
 
