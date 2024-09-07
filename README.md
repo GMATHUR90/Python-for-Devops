@@ -61,6 +61,7 @@ To get started, clone the repository to your local machine:
 ```bash
 git clone https://github.com/GMATHUR90/rhcsa-prep.git
 cd rhcsa-prep
+```
 # Project Setup and Usage Guide
 
 ## Prerequisites
@@ -69,11 +70,11 @@ Make sure you have Python 3.x installed. You can check your Python version with:
 
 ```bash
 python3 --version
-
+```
 # If there are any required dependencies for specific scripts, install them using pip:
 ```bash
 pip install -r requirements.txt
-
+```
 If there is no requirements.txt file, refer to the individual scripts to see which libraries need to be installed (e.g., boto3, cryptography, Click).
 
 # Contributing
