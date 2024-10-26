@@ -1,6 +1,6 @@
 #!/usr/bin/env python
 
-#Command line tool using argparse
+#Command line tool using argparse using ship and list of sailors name
 
 import argparse
 
